@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prize Image Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="prize-form-container">
+            <h1>Create Prize Image</h1>
+
+            <form id="prizeForm">
+                <div class="form-group">
+                    <label for="company-logo">Upload Company Logo</label>
+                    <input type="file" id="company-logo" name="company-logo" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="prize-item-name">Prize Item Name</label>
+                    <input type="text" id="prize-item-name" name="prize-item-name" placeholder="e.g., IRON BOX">
+                </div>
+
+                <div class="form-group">
+                    <label for="prize-image-upload">Upload Prize Item Image</label>
+                    <input type="file" id="prize-image-upload" name="prize-image-upload" accept="image/*">
+                </div>
+
+              <div class="form-group">
+                    <label for="shop-name">Shop Name</label>
+                    <input
+                        type="text"
+                        id="shop-name"
+                        name="shop-name"
+                        placeholder="e.g., THEGIFTBOX"
+                        maxlength="23"
+                        **pattern="^[A-Za-z]{1,23}$"**
+                        title="Shop Name must contain only letters (A-Z, a-z) and be 1 to 23 characters long."
+                    >
+                </div>
+
+                <button type="submit" id="generate-btn">Generate Prize Image</button>
+            </form>
+
+            <div class="preview-area">
+                <h2>Preview</h2>
+                <canvas id="prizeCanvas" width="1080" height="1080" style="border: 1px solid #ccc; max-width: 100%; display: block; margin: 0 auto;"></canvas>
+                <img id="finalImage" style="max-width: 100%; display: none; margin-top: 20px;" alt="Generated Prize Image">
+                <button id="download-btn" style="display: none; margin-top: 15px; width: 100%;" class="download-button">Download Image</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+</body>
+</html>
